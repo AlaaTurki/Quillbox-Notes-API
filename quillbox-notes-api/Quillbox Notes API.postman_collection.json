@@ -1,0 +1,80 @@
+{
+  "info": {
+    "_postman_id": "b9ca7e84-3ecf-48b4-9cc6-e760a4e2c1a8",
+    "name": "Quillbox Notes API",
+    "description": "Run requests in order after starting the project with npm start.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create note",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\"title\":\"First\",\"content\":\"Hello\"}", "options": {"raw": {"language": "json"}}},
+        "url": {"raw": "{{baseUrl}}/notes", "host": ["{{baseUrl}}"], "path": ["notes"]}
+      }
+    },
+    {
+      "name": "List notes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/notes", "host": ["{{baseUrl}}"], "path": ["notes"]}
+      }
+    },
+    {
+      "name": "Get note 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/notes/1", "host": ["{{baseUrl}}"], "path": ["notes", "1"]}
+      }
+    },
+    {
+      "name": "Update note 1",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\"title\":\"First edited\",\"content\":\"Updated\"}", "options": {"raw": {"language": "json"}}},
+        "url": {"raw": "{{baseUrl}}/notes/1", "host": ["{{baseUrl}}"], "path": ["notes", "1"]}
+      }
+    },
+    {
+      "name": "Delete note 1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/notes/1", "host": ["{{baseUrl}}"], "path": ["notes", "1"]}
+      }
+    },
+    {
+      "name": "Get deleted note 1 (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/notes/1", "host": ["{{baseUrl}}"], "path": ["notes", "1"]}
+      }
+    },
+    {
+      "name": "Create invalid note (400)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{}", "options": {"raw": {"language": "json"}}},
+        "url": {"raw": "{{baseUrl}}/notes", "host": ["{{baseUrl}}"], "path": ["notes"]}
+      }
+    },
+    {
+      "name": "Get invalid note id (400)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/notes/abc", "host": ["{{baseUrl}}"], "path": ["notes", "abc"]}
+      }
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:3000", "type": "string"}
+  ]
+}

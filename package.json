@@ -55,7 +55,9 @@
     "dev": "npm-run-all --parallel server client",
     "client": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "node --test",
+    "test:api": "node --test tests/notes.test.js",
+    "test:client": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
